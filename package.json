@@ -19,6 +19,7 @@
   "dependencies": {
     "nprogress": "^0.2.0",
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "react-loader": "^2.4.0"
   }
 }

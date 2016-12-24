@@ -4,6 +4,7 @@ var AppStore = require('../stores/AppStore');
 
 
 var Source = React.createClass({
+
 	render : function() {
 		return(
 			<div>
@@ -23,9 +24,10 @@ var Source = React.createClass({
 			</div>
 		)
 	},
+
 	getSpecificChannels: function (name) {
 		AppActions.searchSpecific(name);
-		this.setState({sources:'',articles:''});
+		this.props.setLoaders();
 	}
 });
 

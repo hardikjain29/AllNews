@@ -5,7 +5,7 @@ var Source = require('./source.js');
 
 var SourceResult = React.createClass ({
     render: function(){
-        var t = 0;
+        var t = this.props.setLoaders;
         return(
             <div>
                 <div className="row">
@@ -13,7 +13,7 @@ var SourceResult = React.createClass ({
                     this.props.sources.map(function(source, i){
                         return (
                                 
-                                <Source source = {source} key = {i} />
+                                <Source setLoaders={t} source = {source} key = {i} />
                              
                         )
                     })

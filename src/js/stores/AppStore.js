@@ -17,21 +17,21 @@ var AppStore = assign({}, EventEmitter.prototype, {
         _articles = articles;
     },
     setSpecific: function(specific){
+        _sources = [];
         _specific = specific;
     },
     setSources: function(sources){
         _articles = [];
+        _specific = [];
         _sources = sources; 
     },
     getHeadLines: function(){
         return _articles;
     },
     getSources: function(){
-
         return _sources;
     },
     getSpecificChannel: function(){
-
         return _specific;
     },
     emitChange: function(){
@@ -91,6 +91,16 @@ AppDispatcher.register(function(payload){
 
         case AppConstants.BLANK:
             AppAPI.blank();
+            AppStore.emit(CHANGE_EVENT);
+            break;
+
+        case AppConstants.SBLANK:
+            AppAPI.sblank();
+            AppStore.emit(CHANGE_EVENT);
+            break;
+
+        case AppConstants.SOBLANK:
+            AppAPI.soblank();
             AppStore.emit(CHANGE_EVENT);
             break;
     }

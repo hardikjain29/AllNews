@@ -27,6 +27,22 @@ var AppActions = {
             actionType: AppConstants.BLANK
         });
     },
+    sblank: function(){
+
+        // console.log('Searching for movie ' + movie.title);
+
+        AppDispatcher.handleViewAction({
+            actionType: AppConstants.SBLANK
+        });
+    },
+    soblank: function(){
+
+        // console.log('Searching for movie ' + movie.title);
+
+        AppDispatcher.handleViewAction({
+            actionType: AppConstants.SOBLANK
+        });
+    },
     searchTop: function(){
 
         // console.log('Searching for movie ' + movie.title);

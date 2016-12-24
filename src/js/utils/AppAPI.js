@@ -106,6 +106,18 @@ module.exports = {
         $(document).ajaxStop(function (){
            AppActions.receiveHeadLines('');
        });
+    },
+
+    sblank: function(){
+        $(document).ajaxStop(function (){
+           AppActions.receiveSpecific('');
+       });
+    },
+
+    soblank: function(){
+        $(document).ajaxStop(function (){
+           AppActions.receiveSources('');
+       });
     }
 
 }

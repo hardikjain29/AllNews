@@ -133,7 +133,7 @@ var Article = React.createClass ({
                           <img className="logo" src={logo}/> 
                         </div>
                       </div>
-                </div>
+                    </div>
                 )
             }
             })
