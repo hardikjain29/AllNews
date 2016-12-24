@@ -1,0 +1,31 @@
+/*.card-image{
+height: 1000px !important;	
+}
+*/
+body{
+	background: url(http://wallpapercave.com/wp/rUSFi40.jpg) center center;
+}
+.hcard{
+height: 600px !important;	
+}
+.scard{
+	min-height: 600px !important;
+	max-height: 600px !important;
+}
+.card-title{
+	font-weight: 900 !important;
+	background-color: rgba(0,0,0,0.1); 
+}
+.logo{
+	width:60px;
+	height: 60px;
+	text-align: right;
+	float: right;
+}
+.dropdown-button{
+	margin-top: 50px;
+	float: right;
+}
+.pointer{
+	cursor: pointer;
+}

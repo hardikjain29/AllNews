@@ -1,0 +1,24 @@
+{
+  "name": "news",
+  "version": "1.0.0",
+  "description": "All news at one place",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hardik Jain",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "*",
+    "flux": "*",
+    "gulp": "*",
+    "reactify": "*",
+    "vinyl-source-stream": "*",
+    "object-assign": "*"
+  },
+  "dependencies": {
+    "nprogress": "^0.2.0",
+    "react": "*",
+    "react-dom": "*"
+  }
+}
