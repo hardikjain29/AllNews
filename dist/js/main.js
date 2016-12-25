@@ -21500,92 +21500,88 @@ module.exports = require('./lib/React');
 }));
 
 },{}],183:[function(require,module,exports){
-var AppDispatcher =  require('../dispatcher/AppDispatcher');
+var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 
 var AppActions = {
-    searchHeadLines: function(){
-
-        // console.log('Searching for movie ' + movie.title);
+    searchHeadLines: function() {
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SEARCH_HEADLINES
         });
     },
-    searchSpecific: function(name){
-
-        // console.log('Searching for movie ' + movie.title);
+    searchSpecific: function(name) {
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SEARCH_SPECIFIC,
-            name:name
+            name: name
         });
     },
-    blank: function(){
+    blank: function() {
 
-        // console.log('Searching for movie ' + movie.title);
+
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.BLANK
         });
     },
-    sblank: function(){
+    sblank: function() {
 
-        // console.log('Searching for movie ' + movie.title);
+
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SBLANK
         });
     },
-    soblank: function(){
+    soblank: function() {
 
-        // console.log('Searching for movie ' + movie.title);
+
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SOBLANK
         });
     },
-    searchTop: function(){
+    searchTop: function() {
 
-        // console.log('Searching for movie ' + movie.title);
+
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SEARCH_TOP
         });
     },
-    searchPopular: function(){
+    searchPopular: function() {
 
-        // console.log('Searching for movie ' + movie.title);
+
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SEARCH_POPULAR
         });
     },
 
-    sources: function(){
+    sources: function() {
 
-        // console.log('Searching for movie ' + movie.title);
+
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SOURCES
         });
-    },    
+    },
 
-    receiveHeadLines: function(articles){
+    receiveHeadLines: function(articles) {
         AppDispatcher.handleViewAction({
             actionType: AppConstants.RECEIVE_HEADLINES,
             articles: articles
         });
-    }, 
+    },
 
-    receiveSpecific: function(specific){
+    receiveSpecific: function(specific) {
         AppDispatcher.handleViewAction({
             actionType: AppConstants.RECEIVE_SPECIFIC,
             specific: specific
         });
-    },   
+    },
 
-    receiveSources: function(sources){
+    receiveSources: function(sources) {
         AppDispatcher.handleViewAction({
             actionType: AppConstants.RECEIVE_SOURCES,
             sources: sources
@@ -21631,7 +21627,6 @@ var App = React.createClass ({displayName: "App",
     },
 
     componentWillUnmount: function(){
-        console.log("will");
         AppStore.removeChangeListener(this._onChange);
     },
 
@@ -22048,17 +22043,17 @@ module.exports = SpecificResult;
 
 },{"../actions/AppActions":183,"../stores/AppStore":194,"./specific.js":189,"react":181}],191:[function(require,module,exports){
 module.exports = {
-    SEARCH_HEADLINES: 'SEARCH_HEADLINES',
-    SEARCH_TOP: 'SEARCH_TOP',
-    SEARCH_POPULAR: 'SEARCH_POPULAR',
-    SEARCH_SPECIFIC: 'SEARCH_SPECIFIC',
-    SOURCES:'SOURCES',
-    RECEIVE_HEADLINES: 'RECEIVE_HEADLINES',
-    RECEIVE_SOURCES: 'RECEIVE_SOURCES',
-    RECEIVE_SPECIFIC: 'RECEIVE_SPECIFIC',
-    BLANK:'BLANK',
-    SBLANK:'SBLANK',
-    SOBLANK:'SOBLANK'
+	SEARCH_HEADLINES: 'SEARCH_HEADLINES',
+	SEARCH_TOP: 'SEARCH_TOP',
+	SEARCH_POPULAR: 'SEARCH_POPULAR',
+	SEARCH_SPECIFIC: 'SEARCH_SPECIFIC',
+	SOURCES: 'SOURCES',
+	RECEIVE_HEADLINES: 'RECEIVE_HEADLINES',
+	RECEIVE_SOURCES: 'RECEIVE_SOURCES',
+	RECEIVE_SPECIFIC: 'RECEIVE_SPECIFIC',
+	BLANK: 'BLANK',
+	SBLANK: 'SBLANK',
+	SOBLANK: 'SOBLANK'
 }
 
 },{}],192:[function(require,module,exports){
@@ -22090,7 +22085,7 @@ ReactDOM.render(
 );
 
 },{"./components/App":184,"./utils/AppAPI.js":195,"react":181,"react-dom":29}],194:[function(require,module,exports){
-var AppDispatcher =  require('../dispatcher/AppDispatcher');
+var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
@@ -22105,43 +22100,43 @@ var _selected = '';
 
 var AppStore = assign({}, EventEmitter.prototype, {
 
-    setHeadLines: function(articles){
+    setHeadLines: function(articles) {
         _articles = articles;
     },
-    setSpecific: function(specific){
+    setSpecific: function(specific) {
         _sources = [];
         _specific = specific;
     },
-    setSources: function(sources){
+    setSources: function(sources) {
         _articles = [];
         _specific = [];
-        _sources = sources; 
+        _sources = sources;
     },
-    getHeadLines: function(){
+    getHeadLines: function() {
         return _articles;
     },
-    getSources: function(){
+    getSources: function() {
         return _sources;
     },
-    getSpecificChannel: function(){
+    getSpecificChannel: function() {
         return _specific;
     },
-    emitChange: function(){
+    emitChange: function() {
         this.emit(CHANGE_EVENT);
     },
-    addChangeListener: function(callback){
+    addChangeListener: function(callback) {
         this.on('change', callback);
     },
-    removeChangeListener: function(callback){
+    removeChangeListener: function(callback) {
         this.removeListener('change', callback);
     }
 });
 
 
-AppDispatcher.register(function(payload){
+AppDispatcher.register(function(payload) {
     var action = payload.action;
 
-    switch(action.actionType){
+    switch (action.actionType) {
         case AppConstants.SEARCH_HEADLINES:
             AppAPI.searchNews();
             AppStore.emit(CHANGE_EVENT);
@@ -22208,122 +22203,122 @@ var AppActions = require('../actions/AppActions');
 
 module.exports = {
 
-    searchNews: function(){
-        var news = []; 
-        var sources = ['the-hindu','techcrunch','bbc-news','ars-technica','associated-press','bbc-sport','business-insider','buzzfeed','cnbc','cnn','engadget','espn','espn-cric-info','financial-times','mtv-news','national-geographic','new-york-magazine','sky-news','talksport','techradar','the-economist','the-guardian-uk','the-huffington-post','the-lad-bible','the-new-york-times','the-next-web','the-sport-bible','the-telegraph','the-times-of-india','the-verge','the-wall-street-journal','the-washington-post','time','usa-today','wired-de'];
-        for (var i = 0 ; i < sources.length ; i++) {
+    searchNews: function() {
+        var news = [];
+        var sources = ['the-hindu', 'techcrunch', 'bbc-news', 'ars-technica', 'associated-press', 'bbc-sport', 'business-insider', 'buzzfeed', 'cnbc', 'cnn', 'engadget', 'espn', 'espn-cric-info', 'financial-times', 'mtv-news', 'national-geographic', 'new-york-magazine', 'sky-news', 'talksport', 'techradar', 'the-economist', 'the-guardian-uk', 'the-huffington-post', 'the-lad-bible', 'the-new-york-times', 'the-next-web', 'the-sport-bible', 'the-telegraph', 'the-times-of-india', 'the-verge', 'the-wall-street-journal', 'the-washington-post', 'time', 'usa-today', 'wired-de'];
+        for (var i = 0; i < sources.length; i++) {
             $.ajax({
-                url: 'https://newsapi.org/v1/articles?source='+sources[i]+'&sortBy=latest&apiKey=28eb505baa05491ab8eb33c4e13c6123',
+                url: 'https://newsapi.org/v1/articles?source=' + sources[i] + '&sortBy=latest&apiKey=28eb505baa05491ab8eb33c4e13c6123',
                 dataType: 'json',
                 cache: false,
-                success: function(data){
+                success: function(data) {
                     // for (var i = 0; i < 4 ; i++) {
                     //     news.push(data.articles[i]);
                     // }
                     news.push(data);
                 }.bind(this),
-                error: function(xhr, status, err){
+                error: function(xhr, status, err) {
                     console.log(err);
                 }.bind(this)
             });
         }
-        $(document).ajaxStop(function () {
-          AppActions.receiveHeadLines(news);
+        $(document).ajaxStop(function() {
+            AppActions.receiveHeadLines(news);
         });
     },
 
-    searchTop: function(){
-        var news = []; 
-        var sources = ['the-hindu','techcrunch','bbc-news','ars-technica','associated-press','bbc-sport','business-insider','buzzfeed','cnbc','cnn','engadget','espn','espn-cric-info','financial-times','mtv-news','national-geographic','new-york-magazine','sky-news','talksport','techradar','the-economist','the-guardian-uk','the-huffington-post','the-lad-bible','the-new-york-times','the-next-web','the-sport-bible','the-telegraph','the-times-of-india','the-verge','the-wall-street-journal','the-washington-post','time','usa-today','wired-de'];
-        for (var i = 0 ; i < sources.length ; i++) {
+    searchTop: function() {
+        var news = [];
+        var sources = ['the-hindu', 'techcrunch', 'bbc-news', 'ars-technica', 'associated-press', 'bbc-sport', 'business-insider', 'buzzfeed', 'cnbc', 'cnn', 'engadget', 'espn', 'espn-cric-info', 'financial-times', 'mtv-news', 'national-geographic', 'new-york-magazine', 'sky-news', 'talksport', 'techradar', 'the-economist', 'the-guardian-uk', 'the-huffington-post', 'the-lad-bible', 'the-new-york-times', 'the-next-web', 'the-sport-bible', 'the-telegraph', 'the-times-of-india', 'the-verge', 'the-wall-street-journal', 'the-washington-post', 'time', 'usa-today', 'wired-de'];
+        for (var i = 0; i < sources.length; i++) {
             $.ajax({
-                url: 'https://newsapi.org/v1/articles?source='+sources[i]+'&sortBy=top&apiKey=28eb505baa05491ab8eb33c4e13c6123',
+                url: 'https://newsapi.org/v1/articles?source=' + sources[i] + '&sortBy=top&apiKey=28eb505baa05491ab8eb33c4e13c6123',
                 dataType: 'json',
                 cache: false,
-                success: function(data){
+                success: function(data) {
                     // for (var i = 0; i < 4 ; i++) {
                     //     news.push(data.articles[i]);
                     // }
                     news.push(data);
                 }.bind(this),
-                error: function(xhr, status, err){
+                error: function(xhr, status, err) {
                     console.log(err);
                 }.bind(this)
             });
         }
-        $(document).ajaxStop(function () {
-          AppActions.receiveHeadLines(news);
+        $(document).ajaxStop(function() {
+            AppActions.receiveHeadLines(news);
         });
     },
 
-    searchPopular: function(){
-        var news = []; 
-        var sources = ['the-hindu','techcrunch','bbc-news','ars-technica','associated-press','bbc-sport','business-insider','buzzfeed','cnbc','cnn','engadget','espn','espn-cric-info','financial-times','mtv-news','national-geographic','new-york-magazine','sky-news','talksport','techradar','the-economist','the-guardian-uk','the-huffington-post','the-lad-bible','the-new-york-times','the-next-web','the-sport-bible','the-telegraph','the-times-of-india','the-verge','the-wall-street-journal','the-washington-post','time','usa-today','wired-de'];
-        for (var i = 0 ; i < sources.length ; i++) {
+    searchPopular: function() {
+        var news = [];
+        var sources = ['the-hindu', 'techcrunch', 'bbc-news', 'ars-technica', 'associated-press', 'bbc-sport', 'business-insider', 'buzzfeed', 'cnbc', 'cnn', 'engadget', 'espn', 'espn-cric-info', 'financial-times', 'mtv-news', 'national-geographic', 'new-york-magazine', 'sky-news', 'talksport', 'techradar', 'the-economist', 'the-guardian-uk', 'the-huffington-post', 'the-lad-bible', 'the-new-york-times', 'the-next-web', 'the-sport-bible', 'the-telegraph', 'the-times-of-india', 'the-verge', 'the-wall-street-journal', 'the-washington-post', 'time', 'usa-today', 'wired-de'];
+        for (var i = 0; i < sources.length; i++) {
             $.ajax({
-                url: 'https://newsapi.org/v1/articles?source='+sources[i]+'&sortBy=popular&apiKey=28eb505baa05491ab8eb33c4e13c6123',
+                url: 'https://newsapi.org/v1/articles?source=' + sources[i] + '&sortBy=popular&apiKey=28eb505baa05491ab8eb33c4e13c6123',
                 dataType: 'json',
                 cache: false,
-                success: function(data){
+                success: function(data) {
                     // for (var i = 0; i < 4 ; i++) {
                     //     news.push(data.articles[i]);
                     // }
                     news.push(data);
                 }.bind(this),
-                error: function(xhr, status, err){
+                error: function(xhr, status, err) {
                     console.log(err);
                 }.bind(this)
             });
         }
-        $(document).ajaxStop(function () {
-          AppActions.receiveHeadLines(news);
+        $(document).ajaxStop(function() {
+            AppActions.receiveHeadLines(news);
         });
     },
 
-    searchSpecific: function(name){
-            $.ajax({
-                url: 'https://newsapi.org/v1/articles?source='+name+'&sortBy=latest&apiKey=28eb505baa05491ab8eb33c4e13c6123',
-                dataType: 'json',
-                cache: false,
-                success: function(data){
-                    AppActions.receiveSpecific(data.articles);
-                }.bind(this),
-                error: function(xhr, status, err){
-                    console.log(err);
-                }.bind(this)
-            });
-        },
-
-    sources: function(){
-           $.ajax({
-                url: 'https://newsapi.org/v1/sources?language=en',
-                dataType: 'json',
-                cache: false,
-                success: function(data){
-                    AppActions.receiveSources(data.sources);
-                }.bind(this),
-                error: function(xhr, status, err){
-                    console.log(err);
-                }.bind(this)
-            });
+    searchSpecific: function(name) {
+        $.ajax({
+            url: 'https://newsapi.org/v1/articles?source=' + name + '&sortBy=latest&apiKey=28eb505baa05491ab8eb33c4e13c6123',
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                AppActions.receiveSpecific(data.articles);
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.log(err);
+            }.bind(this)
+        });
     },
 
-    blank: function(){
-        $(document).ajaxStop(function (){
-           AppActions.receiveHeadLines('');
-       });
+    sources: function() {
+        $.ajax({
+            url: 'https://newsapi.org/v1/sources?language=en',
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                AppActions.receiveSources(data.sources);
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.log(err);
+            }.bind(this)
+        });
     },
 
-    sblank: function(){
-        $(document).ajaxStop(function (){
-           AppActions.receiveSpecific('');
-       });
+    blank: function() {
+        $(document).ajaxStop(function() {
+            AppActions.receiveHeadLines('');
+        });
     },
 
-    soblank: function(){
-        $(document).ajaxStop(function (){
-           AppActions.receiveSources('');
-       });
+    sblank: function() {
+        $(document).ajaxStop(function() {
+            AppActions.receiveSpecific('');
+        });
+    },
+
+    soblank: function() {
+        $(document).ajaxStop(function() {
+            AppActions.receiveSources('');
+        });
     }
 
 }

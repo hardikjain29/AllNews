@@ -1,16 +1,16 @@
-/*.card-image{
-height: 1000px !important;	
-}
-*/
+
 body{
 	background: url(http://wallpapercave.com/wp/rUSFi40.jpg) center center;
 }
+
 .margin-top{
 	margin-top: 35px;
 }
+
 .hcard{
-height: 600px !important;	
+	height: 600px !important;	
 }
+
 .scard{
 	min-height: 600px !important;
 	max-height: 600px !important;

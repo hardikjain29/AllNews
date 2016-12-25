@@ -1,89 +1,85 @@
-var AppDispatcher =  require('../dispatcher/AppDispatcher');
+var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 
 var AppActions = {
-    searchHeadLines: function(){
-
-        // console.log('Searching for movie ' + movie.title);
+    searchHeadLines: function() {
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SEARCH_HEADLINES
         });
     },
-    searchSpecific: function(name){
-
-        // console.log('Searching for movie ' + movie.title);
+    searchSpecific: function(name) {
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SEARCH_SPECIFIC,
-            name:name
+            name: name
         });
     },
-    blank: function(){
+    blank: function() {
 
-        // console.log('Searching for movie ' + movie.title);
+
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.BLANK
         });
     },
-    sblank: function(){
+    sblank: function() {
 
-        // console.log('Searching for movie ' + movie.title);
+
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SBLANK
         });
     },
-    soblank: function(){
+    soblank: function() {
 
-        // console.log('Searching for movie ' + movie.title);
+
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SOBLANK
         });
     },
-    searchTop: function(){
+    searchTop: function() {
 
-        // console.log('Searching for movie ' + movie.title);
+
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SEARCH_TOP
         });
     },
-    searchPopular: function(){
+    searchPopular: function() {
 
-        // console.log('Searching for movie ' + movie.title);
+
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SEARCH_POPULAR
         });
     },
 
-    sources: function(){
+    sources: function() {
 
-        // console.log('Searching for movie ' + movie.title);
+
 
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SOURCES
         });
-    },    
+    },
 
-    receiveHeadLines: function(articles){
+    receiveHeadLines: function(articles) {
         AppDispatcher.handleViewAction({
             actionType: AppConstants.RECEIVE_HEADLINES,
             articles: articles
         });
-    }, 
+    },
 
-    receiveSpecific: function(specific){
+    receiveSpecific: function(specific) {
         AppDispatcher.handleViewAction({
             actionType: AppConstants.RECEIVE_SPECIFIC,
             specific: specific
         });
-    },   
+    },
 
-    receiveSources: function(sources){
+    receiveSources: function(sources) {
         AppDispatcher.handleViewAction({
             actionType: AppConstants.RECEIVE_SOURCES,
             sources: sources

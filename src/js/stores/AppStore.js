@@ -1,4 +1,4 @@
-var AppDispatcher =  require('../dispatcher/AppDispatcher');
+var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
@@ -13,43 +13,43 @@ var _selected = '';
 
 var AppStore = assign({}, EventEmitter.prototype, {
 
-    setHeadLines: function(articles){
+    setHeadLines: function(articles) {
         _articles = articles;
     },
-    setSpecific: function(specific){
+    setSpecific: function(specific) {
         _sources = [];
         _specific = specific;
     },
-    setSources: function(sources){
+    setSources: function(sources) {
         _articles = [];
         _specific = [];
-        _sources = sources; 
+        _sources = sources;
     },
-    getHeadLines: function(){
+    getHeadLines: function() {
         return _articles;
     },
-    getSources: function(){
+    getSources: function() {
         return _sources;
     },
-    getSpecificChannel: function(){
+    getSpecificChannel: function() {
         return _specific;
     },
-    emitChange: function(){
+    emitChange: function() {
         this.emit(CHANGE_EVENT);
     },
-    addChangeListener: function(callback){
+    addChangeListener: function(callback) {
         this.on('change', callback);
     },
-    removeChangeListener: function(callback){
+    removeChangeListener: function(callback) {
         this.removeListener('change', callback);
     }
 });
 
 
-AppDispatcher.register(function(payload){
+AppDispatcher.register(function(payload) {
     var action = payload.action;
 
-    switch(action.actionType){
+    switch (action.actionType) {
         case AppConstants.SEARCH_HEADLINES:
             AppAPI.searchNews();
             AppStore.emit(CHANGE_EVENT);

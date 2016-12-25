@@ -32,7 +32,6 @@ var App = React.createClass ({
     },
 
     componentWillUnmount: function(){
-        console.log("will");
         AppStore.removeChangeListener(this._onChange);
     },
 
