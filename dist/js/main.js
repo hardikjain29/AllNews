@@ -21674,14 +21674,20 @@ var App = React.createClass ({displayName: "App",
 
         return(
             React.createElement("div", null, 
-                React.createElement("nav", null, 
+                React.createElement("nav", {className: "cyan"}, 
                     React.createElement("div", {className: "nav-wrapper"}, 
-                      React.createElement("a", {href: "#", className: "brand-logo"}, "All News"), 
-                      React.createElement("a", {href: "#", "data-activates": "mobile-demo", className: "button-collapse"}, React.createElement("i", {className: "material-icons"}, "menu")), 
-                      React.createElement("ul", {id: "nav-mobile", className: "right hide-on-med-and-down"}, 
-                        React.createElement("li", {className: headActive}, React.createElement("a", {href: "#", onClick: this.getHeadLines}, "Headlines")), 
-                        React.createElement("li", {className: sourceActive}, React.createElement("a", {href: "#", onClick: this.getSpecific}, "Specific"))
-                      )
+                    React.createElement("div", {className: "container"}, 
+                          React.createElement("a", {href: "#", className: "brand-logo"}, "All News At One Place"), 
+                          React.createElement("a", {href: "#", "data-activates": "mobile-demo", className: "button-collapse"}, React.createElement("i", {className: "material-icons"}, "menu")), 
+                          React.createElement("ul", {id: "nav-mobile", className: "right hide-on-med-and-down"}, 
+                            React.createElement("li", {className: headActive}, React.createElement("a", {href: "#", onClick: this.getHeadLines}, "Headlines")), 
+                            React.createElement("li", {className: sourceActive}, React.createElement("a", {href: "#", onClick: this.getSpecific}, "Specific"))
+                          ), 
+                          React.createElement("ul", {className: "side-nav", id: "mobile-demo"}, 
+                            React.createElement("li", {className: headActive}, React.createElement("a", {href: "#", onClick: this.getHeadLines}, "Headlines")), 
+                            React.createElement("li", {className: sourceActive}, React.createElement("a", {href: "#", onClick: this.getSpecific}, "Specific"))
+                          )
+                        )
                     )
                 ), 
                 React.createElement("a", {className: "dropdown-button btn", style: sortDisplay, href: "#", "data-activates": "dropdown1"}, "Sort ⇓"), 
@@ -21690,8 +21696,8 @@ var App = React.createClass ({displayName: "App",
                             React.createElement("li", null, React.createElement("a", {href: "#", onClick: this.getHeadLines}, "Latest")), 
                             React.createElement("li", null, React.createElement("a", {href: "#", onClick: this.getPopular}, "Popular"))
                           ), 
-                 React.createElement("div", {className: "container"}, 
-                    React.createElement(Loader, {loaded: this.state.loaded}, 
+                 React.createElement("div", {className: "container margin-top"}, 
+                    React.createElement(Loader, {length: 20, width: 10, radius: 30, color: "#00DF77", loaded: this.state.loaded}, 
                         articleResults, 
                         sourceResults, 
                         specificResults

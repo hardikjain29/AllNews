@@ -75,14 +75,20 @@ var App = React.createClass ({
 
         return(
             <div>
-                <nav>
+                <nav className="cyan">
                     <div className="nav-wrapper">
-                      <a href="#" className="brand-logo">All News</a>
-                      <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
-                      <ul id="nav-mobile" className="right hide-on-med-and-down">
-                        <li className={headActive}><a href="#" onClick={this.getHeadLines}>Headlines</a></li>
-                        <li className={sourceActive}><a href="#" onClick={this.getSpecific}>Specific</a></li>
-                      </ul>
+                    <div className="container">
+                          <a href="#" className="brand-logo">All News At One Place</a>
+                          <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
+                          <ul id="nav-mobile" className="right hide-on-med-and-down">
+                            <li className={headActive}><a href="#" onClick={this.getHeadLines}>Headlines</a></li>
+                            <li className={sourceActive}><a href="#" onClick={this.getSpecific}>Specific</a></li>
+                          </ul>
+                          <ul className="side-nav" id="mobile-demo">
+                            <li className={headActive}><a href="#" onClick={this.getHeadLines}>Headlines</a></li>
+                            <li className={sourceActive}><a href="#" onClick={this.getSpecific}>Specific</a></li>
+                          </ul>
+                        </div>
                     </div>
                 </nav>
                 <a className='dropdown-button btn' style={sortDisplay} href='#' data-activates='dropdown1'>Sort &dArr;</a>
@@ -91,8 +97,8 @@ var App = React.createClass ({
                             <li><a href="#" onClick={this.getHeadLines}>Latest</a></li>
                             <li><a href="#" onClick={this.getPopular}>Popular</a></li>
                           </ul>
-                 <div className="container">
-                    <Loader loaded={this.state.loaded}>
+                 <div className="container margin-top">
+                    <Loader length={20} width={10} radius={30} color="#00DF77" loaded={this.state.loaded}>
                         {articleResults}
                         {sourceResults}
                         {specificResults}
